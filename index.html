@@ -1,20 +1,55 @@
-<html>
-    <head>
-        <title>Various Tech Site</title>
-        <meta charset="UTF-8">
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Protected Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
 
-    <body>
-      <p align="center"><img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AITFw-yVQ4f3UGcrNgV9DMffE1U6PCHbsY7mVpiA6SYYyGAnxw3lLNBbEIZD5ED87XoR1HOca118ystZkgx1zQLug29X1eMh=w1920-h922" align="center" alt="Welcome" width="300" height="110"></p>
-      <h1>Homepage</h1>
-      <p><font size="5" face="Courier">Discussed topics</font></p>
-      <ul type="disc">
+        #password-form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
 
-        <li><a href="iptv.html">IPTV LINKS</a></li>
-        <li>Tech Hacks</li>
-        <li><a href="contactme.html">Contact Me</a></li>
+    <h1>Welcome to the Password Protected Website</h1>
 
-      </ul>
+    <div id="password-form">
+        <p>Please enter the password to access the content:</p>
+        <input type="password" id="password-input">
+        <button onclick="checkPassword()">Submit</button>
+    </div>
 
-    </body>
+    <div id="content" style="display:none;">
+        <h2>Protected Content</h2>
+        <p>This is the content that is protected by a password.</p>
+    </div>
+
+    <script>
+        // Define your password here
+        const correctPassword = "fuckyou";
+
+        function checkPassword() {
+            const passwordInput = document.getElementById("password-input").value;
+            const contentDiv = document.getElementById("content");
+            const passwordForm = document.getElementById("password-form");
+
+            if (passwordInput === correctPassword) {
+                // Correct password, show the content
+                contentDiv.style.display = "block";
+                passwordForm.style.display = "none";
+            } else {
+                // Incorrect password, show an error message
+                alert("Incorrect password. Please try again.");
+            }
+        }
+    </script>
+
+</body>
 </html>
