@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Protected Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        #password-form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to the Password Protected Website</h1>
+
+    <div id="password-form">
+        <p>Please enter the password to access the content:</p>
+        <input type="password" id="password-input">
+        <button onclick="checkPassword()">Submit</button>
+    </div>
+
+    <div id="content" style="display:none;">
+        <h2>Protected Content</h2>
+        <p>This is the content that is protected by a password.</p>
+    </div>
+
+    <script>
+        // Define your password here
+        const correctPassword = "fuckyou";
+
+        function checkPassword() {
+            const passwordInput = document.getElementById("password-input").value;
+            const contentDiv = document.getElementById("content");
+            const passwordForm = document.getElementById("password-form");
+
+            if (passwordInput === correctPassword) {
+                // Correct password, show the content
+                contentDiv.style.display = "block";
+                passwordForm.style.display = "none";
+            } else {
+                // Incorrect password, show an error message
+                alert("Incorrect password. Please try again.");
+            }
+        }
+    </script>
+
+</body>
+</html>
